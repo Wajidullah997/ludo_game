@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ludo game</title>
+    <link rel="stylesheet" href="ludo.css" />
+    <link href="https://fonts.cdnfonts.com/css/acme" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="h1"> -->
+      <h1>JS ludo1</h1>
+      <div class="dice">
+        <p>player 1</p>
+        <img src="images/p1.png" alt="" id="chk1" />
+      </div>
+      <div class="dice">
+        <p>player 2</p>
+        <img src="images/p6.png" alt="" id="chk2" />
+      </div>
+      <br />
+      <button class="btn" onclick="ludogame();">clik me</button>
+    </div>
+    <script>
+      ludogame = () => {
+        const play1 = Math.floor(Math.random() * 6) + 1;
+        const plydice = `images/p${play1}.png`;
+        document.getElementById("chk1").setAttribute("src", plydice);
+
+        const play2 = Math.floor(Math.random() * 6) + 1;
+        const ply2dice = `images/p${play2}.png`;
+        document.getElementById("chk2").setAttribute("src", ply2dice);
+        if (play1 > play2) {
+          document.querySelector("h1").innerHTML = "player1 won th game";
+        } else if (play1 < play2) {
+          document.querySelector("h1").innerHTML = "player 2 won the game";
+        } else {
+          document.querySelector("h1").innerHTML = "draw";
+        }
+      };
+    </script>
+  </body>
+</html>
